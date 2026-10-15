@@ -1,0 +1,122 @@
+@reference "tailwindcss";
+
+/* Barra superior: solo en pantallas de menos de 768 px. */
+.topbar {
+  @apply sticky top-0 z-30 flex items-center justify-between px-4
+         border-b md:hidden;
+  height: var(--topbar-height);
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+.menu-toggle {
+  @apply inline-flex items-center justify-center p-0 rounded-[var(--radius)]
+         bg-transparent cursor-pointer;
+  min-width: var(--touch-min);
+  min-height: var(--touch-min);
+  color: var(--fg);
+}
+
+.menu-toggle:hover {
+  background-color: var(--surface-muted);
+}
+
+.brand {
+  @apply flex items-center gap-2 text-lg font-bold no-underline;
+  min-height: var(--touch-min); /* el logo es un enlace al inicio: área táctil de 44 px */
+  color: var(--fg);
+}
+
+.brand svg {
+  color: var(--accent);
+}
+
+/* Barra lateral: fija en escritorio; panel deslizable en celular. */
+.sidebar {
+  @apply fixed top-0 left-0 z-50 h-dvh flex flex-col gap-1 p-3
+         border-r overflow-y-auto;
+  width: var(--sidebar-width);
+  max-width: 85vw;
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+@media (width < 48rem) {
+  .sidebar {
+    @apply -translate-x-full invisible shadow-xl
+           motion-safe:transition-[translate,visibility] motion-safe:duration-200;
+  }
+
+  .sidebar.open {
+    @apply translate-x-0 visible;
+  }
+}
+
+.sidebar-header {
+  @apply flex items-center justify-between px-2 mb-2;
+  min-height: var(--touch-min);
+}
+
+.sidebar-close {
+  @apply md:hidden;
+}
+
+.sidebar-backdrop {
+  @apply fixed inset-0 z-40 bg-black/40 md:hidden;
+}
+
+.sidebar > .routes {
+  @apply list-none flex flex-col gap-1 m-0 p-0;
+}
+
+.sidebar > .routes.bottom {
+  @apply mt-auto;
+}
+
+.sidebar-user {
+  @apply px-3 py-2 mb-2 font-medium truncate;
+  color: var(--fg-muted);
+}
+
+.sidebar-logout {
+  @apply flex items-center gap-3 w-full
+         px-3 mt-1 rounded-md text-left text-base font-normal
+         bg-transparent cursor-pointer transition-colors;
+  min-height: var(--touch-min);
+  color: var(--fg);
+}
+
+.sidebar-logout:hover {
+  background-color: var(--surface-muted);
+}
+
+.routes > .route {
+  @apply w-full;
+}
+
+.route > a {
+  @apply flex items-center gap-3 w-full
+         px-3 rounded-md no-underline
+         transition-colors;
+  min-height: var(--touch-min);
+  color: var(--fg);
+}
+
+.route > a:hover {
+  background-color: var(--surface-muted);
+}
+
+.route > a.active {
+  @apply font-semibold;
+  background-color: var(--accent-soft);
+  color: var(--accent-hover);
+}
+
+/* Indicador de alertas no leídas junto a «Alertas». */
+.contador-menu {
+  @apply ml-auto inline-flex items-center justify-center px-2 rounded-full text-sm font-bold;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  color: var(--on-accent);
+  background-color: var(--estado-critico);
+}

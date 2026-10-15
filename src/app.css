@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import "./styles/tokens.css";
+
+body {
+  font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--fg);
+  background-color: var(--bg);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+h1 {
+  @apply text-2xl font-semibold;
+}
+
+.app-shell {
+  @apply min-h-dvh;
+}
+
+main {
+  @apply max-w-3xl mx-auto px-4 py-8 w-full
+         flex flex-col items-center justify-start;
+}
+
+/* En escritorio, el contenido deja espacio a la barra lateral fija. */
+@media (width >= 48rem) {
+  .with-sidebar main {
+    margin-left: var(--sidebar-width);
+    max-width: none;
+    width: calc(100% - var(--sidebar-width));
+    @apply items-start px-8;
+  }
+}
+
+.not-found {
+  @apply flex flex-col items-center gap-4 text-center mt-16;
+}
+
+.button-link {
+  @apply inline-flex items-center justify-center px-4 rounded-[var(--radius)]
+         font-medium no-underline transition-colors;
+  min-height: var(--touch-min);
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.button-link:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Botón secundario: borde verde sobre fondo claro. */
+.boton-secundario {
+  @apply inline-flex items-center gap-2 self-start px-4 py-2 text-base font-medium rounded-[var(--radius)] border cursor-pointer;
+  min-height: var(--touch-min);
+  color: var(--accent-hover);
+  background-color: var(--surface);
+  border-color: var(--accent);
+}
+
+.boton-secundario:hover {
+  background-color: var(--accent-soft);
+}
+
+/* Botón de acción destructiva (eliminar, deshabilitar). */
+.boton-peligro {
+  @apply px-4 py-2 text-base font-semibold rounded-[var(--radius)] cursor-pointer;
+  min-height: var(--touch-min);
+  color: var(--on-accent);
+  background-color: var(--estado-critico);
+}
+
+.boton-peligro:hover {
+  background-color: var(--estado-critico);
+  filter: brightness(0.9);
+}

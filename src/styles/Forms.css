@@ -1,0 +1,131 @@
+@reference "tailwindcss";
+/* Los colores y radios vienen de tokens.css. */
+
+@layer base {
+    form {
+        @apply m-0;
+    }
+
+  input {
+    @apply w-full px-3 py-2 text-base rounded-[var(--radius)]
+           border outline-none transition-colors;
+    min-height: var(--touch-min);
+    border-color: var(--border);
+    color: var(--fg);
+    background-color: var(--surface);
+  }
+  input:focus {
+    border-color: var(--accent);
+  }
+  /* En un campo de fecha el foco cae en un segmento interno (día, mes, año) y :focus-visible no
+     pinta el campo: se marca igual que el foco global (app.css). */
+  input[type="date"]:focus,
+  input[type="date"]:focus-within {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+input[type="checkbox"] {
+  @apply inline-block align-middle mr-3 shrink-0;
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 0;
+  accent-color: var(--accent);
+}
+
+  button {
+    @apply px-4 py-2 text-sm font-medium rounded-[var(--radius)]
+           cursor-pointer transition-colors;
+    color: var(--on-accent);
+    background-color: var(--accent);
+  }
+  button:hover {
+    background-color: var(--accent-hover);
+  }
+  button:disabled {
+    @apply cursor-wait opacity-75;
+  }
+}
+
+.form-field {
+  @apply flex flex-col gap-1 mb-4;
+}
+
+.form-field > label {
+  @apply flex flex-col gap-1 font-medium;
+  color: var(--fg);
+}
+
+.form-field.has-error input {
+  border-color: var(--estado-critico);
+}
+
+.field-error,
+.form-error {
+  @apply flex items-start gap-2 m-0;
+  color: var(--estado-critico);
+}
+
+.field-error svg,
+.form-error svg,
+.form-ok svg {
+  @apply shrink-0 mt-[0.2em];
+}
+
+.form-ok {
+  @apply flex items-start gap-2 p-3 mb-4 rounded-[var(--radius)] border;
+  color: var(--estado-normal);
+  background-color: var(--estado-normal-bg);
+  border-color: var(--estado-normal);
+}
+
+.form-error {
+  @apply p-3 mb-4 rounded-[var(--radius)] border;
+  background-color: var(--estado-critico-bg);
+  border-color: var(--estado-critico);
+}
+
+.form-title {
+  @apply text-lg font-semibold mb-4;
+  color: var(--fg);
+}
+
+.form-link {
+  @apply p-0 bg-transparent text-sm underline;
+  color: var(--accent);
+}
+.field-help {
+  @apply font-normal text-base;
+  color: var(--fg-muted);
+}
+
+.form-opciones {
+  @apply m-0 mb-4 p-0 border-0 flex flex-wrap gap-x-5 gap-y-1;
+}
+
+.form-opciones legend {
+  @apply w-full mb-1 font-medium;
+}
+
+.form-opcion {
+  @apply inline-flex items-center gap-2 cursor-pointer;
+  min-height: var(--touch-min);
+}
+
+.form-opcion input[type="radio"] {
+  @apply w-5 h-5 m-0 shrink-0;
+  min-height: 0;
+  accent-color: var(--accent);
+}
+
+.form-field textarea {
+  @apply w-full px-3 py-2 text-base rounded-[var(--radius)] border outline-none;
+  min-height: 6rem;
+  border-color: var(--border);
+  color: var(--fg);
+  background-color: var(--surface);
+}
+
+.form-field.has-error textarea {
+  border-color: var(--estado-critico);
+}

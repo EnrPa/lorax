@@ -1,0 +1,34 @@
+@reference "tailwindcss";
+/* Pestañas (mockup docs/mockups/ajustes.png): texto con subrayado en la activa. */
+
+.pestanas {
+  @apply w-full;
+}
+
+/* Si las pestañas no caben (celular, 390 px), pasan a una segunda línea en vez de cortarse (diseno.md §9). */
+.pestanas-lista {
+  @apply flex flex-wrap gap-x-2 border-b;
+  border-color: var(--border);
+}
+
+.pestana {
+  @apply px-3 bg-transparent rounded-none border-b-4 border-transparent
+         text-base font-medium whitespace-nowrap cursor-pointer;
+  min-height: var(--touch-min);
+  color: var(--fg-muted);
+}
+
+.pestana:hover {
+  @apply bg-transparent;
+  color: var(--fg);
+}
+
+.pestana[aria-selected="true"] {
+  @apply font-semibold;
+  color: var(--fg);
+  border-bottom-color: var(--accent);
+}
+
+.pestanas-panel {
+  @apply pt-6;
+}

@@ -1,0 +1,38 @@
+@reference "tailwindcss";
+/* Ajustes: Perfil y Seguridad (mockup docs/mockups/ajustes.png). */
+
+.ajustes {
+  @apply w-full flex flex-col gap-4;
+}
+
+.ajustes-form {
+  @apply max-w-xl;
+}
+
+.ajustes-cargando {
+  color: var(--fg-muted);
+}
+
+.ajustes-solo-lectura {
+  @apply flex flex-col gap-3 my-2 p-4 rounded-[var(--radius)];
+  background-color: var(--surface-muted);
+}
+
+.ajustes-solo-lectura dt {
+  @apply font-medium;
+  color: var(--fg-muted);
+}
+
+.ajustes-solo-lectura dd {
+  @apply m-0 break-words;
+}
+
+.ajustes-nota {
+  @apply mb-4;
+  color: var(--fg-muted);
+}
+
+.ajustes-submit {
+  @apply text-base font-semibold;
+  min-height: var(--touch-min);
+}

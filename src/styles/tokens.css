@@ -1,0 +1,62 @@
+/* Tokens de diseño de LoRax (diseno.md §9).
+   Los colores de estado siempre se combinan con ícono y texto; nunca solos. */
+:root {
+  /* Acento: verde de los mockups, oscurecido para contraste AA con texto blanco (~5:1). */
+  --accent: #15803d;
+  --accent-hover: #166534;
+  --accent-soft: #dcfce7;
+  --on-accent: #ffffff;
+
+  /* Paleta base */
+  --bg: #f7f9f7;
+  --surface: #ffffff;
+  --surface-muted: #eef3ef;
+  --fg: #111827;
+  --fg-muted: #4b5563;
+  --border: #d1d5db;
+  --focus: #1d4ed8;
+  --radius: 0.5rem;
+
+  /* Estados de variable y estación: color del texto/ícono y fondo de la insignia */
+  --estado-normal: #15803d;
+  --estado-normal-bg: #dcfce7;
+  --estado-advertencia: #b45309;
+  --estado-advertencia-bg: #fef3c7;
+  --estado-critico: #b91c1c;
+  --estado-critico-bg: #fee2e2;
+  --estado-sin-datos: #4b5563;
+  --estado-sin-datos-bg: #f3f4f6;
+  --estado-sin-evaluar: #1d4ed8;
+  --estado-sin-evaluar-bg: #dbeafe;
+
+  /* Distribución */
+  --sidebar-width: 15rem;
+  --topbar-height: 3.5rem;
+  --touch-min: 2.75rem; /* 44 px o más */
+}
+
+/* Texto base de 18 px. Tailwind usa rem, así que todo escala en proporción;
+   los puntos de quiebre (md = 768 px) no cambian porque las media queries
+   usan el tamaño inicial del navegador. */
+html {
+  font-size: 112.5%;
+}
+
+/* RNF03: ningún texto bajo 16 px. Con la base de 18 px, el text-sm de Tailwind (0,875rem) daría
+   15,75 px; se fija en 16 px (0,8889rem). Fuera de capas, para que prime sobre el tema de Tailwind. */
+:root {
+  --text-sm: 0.8889rem;
+}
+
+/* §9: respeto por prefers-reduced-motion. Sin transiciones ni animaciones; los gráficos ya lo
+   respetan por su cuenta (GraficoSerie). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

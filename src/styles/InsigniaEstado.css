@@ -1,0 +1,35 @@
+@reference "tailwindcss";
+/* Insignia de estado: color + ícono + texto (diseno.md §9). Colores en tokens.css. */
+
+.insignia-estado {
+  @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-sm font-semibold leading-tight;
+}
+
+.insignia-estado svg {
+  @apply shrink-0;
+}
+
+.insignia-normal {
+  color: var(--estado-normal);
+  background-color: var(--estado-normal-bg);
+}
+
+.insignia-advertencia {
+  color: var(--estado-advertencia);
+  background-color: var(--estado-advertencia-bg);
+}
+
+.insignia-critico {
+  color: var(--estado-critico);
+  background-color: var(--estado-critico-bg);
+}
+
+.insignia-sin-datos {
+  color: var(--estado-sin-datos);
+  background-color: var(--estado-sin-datos-bg);
+}
+
+.insignia-sin-evaluar {
+  color: var(--estado-sin-evaluar);
+  background-color: var(--estado-sin-evaluar-bg);
+}

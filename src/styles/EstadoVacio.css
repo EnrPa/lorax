@@ -1,0 +1,24 @@
+@reference "tailwindcss";
+
+.estado-vacio {
+  @apply flex flex-col items-center gap-3 px-4 py-10 text-center rounded-[var(--radius)] border-2 border-dashed;
+  border-color: var(--border);
+}
+
+.estado-vacio svg {
+  color: var(--accent);
+}
+
+.estado-vacio-titulo {
+  @apply text-lg font-semibold;
+}
+
+.estado-vacio-texto {
+  @apply max-w-md;
+  color: var(--fg-muted);
+}
+
+.estado-vacio-accion {
+  @apply text-base font-semibold;
+  min-height: var(--touch-min);
+}

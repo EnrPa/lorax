@@ -1,0 +1,46 @@
+@reference "tailwindcss";
+/* Bandeja de correos de desarrollo (/dev/correos). */
+
+.correos {
+  @apply w-full flex flex-col gap-4;
+}
+
+.correos-encabezado {
+  @apply flex items-center justify-between gap-4;
+}
+
+.correos-encabezado button {
+  min-height: var(--touch-min);
+}
+
+.correos-nota {
+  color: var(--fg-muted);
+}
+
+.correos-lista {
+  @apply list-none m-0 p-0 flex flex-col gap-4;
+}
+
+.correo {
+  @apply p-4 rounded-[var(--radius)] border;
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+.correo h2 {
+  @apply text-lg font-semibold;
+}
+
+.correo-meta {
+  @apply mb-3;
+  color: var(--fg-muted);
+}
+
+.correo-texto {
+  @apply whitespace-pre-wrap break-words font-sans m-0;
+}
+
+.correo-texto a {
+  @apply underline break-all;
+  color: var(--accent);
+}

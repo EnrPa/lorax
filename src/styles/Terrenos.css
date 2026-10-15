@@ -1,0 +1,105 @@
+@reference "tailwindcss";
+/* Pestaña «Terrenos y estaciones» de Ajustes. Sobria: bordes, sin sombras (diseno.md §9). */
+
+.terrenos {
+  @apply flex flex-col gap-4 max-w-3xl;
+}
+
+.terrenos-encabezado {
+  @apply flex flex-wrap items-center justify-between gap-3;
+}
+
+.terrenos-encabezado h2 {
+  @apply text-xl font-semibold;
+}
+
+.terrenos-encabezado button {
+  @apply inline-flex items-center gap-2 text-base;
+  min-height: var(--touch-min);
+}
+
+.terreno {
+  @apply flex flex-col gap-3 p-4 rounded-[var(--radius)] border;
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+.terreno h3 {
+  @apply text-lg font-semibold;
+}
+
+.terreno h4 {
+  @apply font-semibold;
+}
+
+.terreno-datos {
+  color: var(--fg-muted);
+}
+
+.estaciones {
+  @apply list-none m-0 p-0 flex flex-col;
+}
+
+.estacion {
+  @apply py-3 border-t flex flex-col gap-1;
+  border-color: var(--border);
+}
+
+.estacion-encabezado {
+  @apply flex flex-wrap items-center gap-x-3 gap-y-1;
+}
+
+.estacion-modelo,
+.estacion-sensores {
+  color: var(--fg-muted);
+}
+
+/* Insignia de estado: color + ícono + texto. */
+.insignia {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-sm font-medium;
+}
+
+.insignia-normal {
+  color: var(--estado-normal);
+  background-color: var(--estado-normal-bg);
+}
+
+.insignia-sin-datos {
+  color: var(--estado-sin-datos);
+  background-color: var(--estado-sin-datos-bg);
+}
+
+/* Formularios de terreno y estación */
+.terreno-form {
+  @apply max-w-xl;
+}
+
+.terreno-form fieldset {
+  @apply m-0 mb-4 p-0 border-0 min-w-0;
+}
+
+.terreno-form legend {
+  @apply text-lg font-semibold mb-3;
+}
+
+.terreno-form fieldset fieldset legend {
+  @apply text-base mb-1;
+}
+
+.terreno-coordenadas-campos {
+  @apply grid gap-x-4 sm:grid-cols-2;
+}
+
+.terreno-sensores label {
+  @apply flex items-center;
+  min-height: var(--touch-min);
+}
+
+.terreno-acciones {
+  @apply flex flex-wrap gap-3 mt-2;
+}
+
+.terreno-submit {
+  @apply text-base font-semibold;
+  min-height: var(--touch-min);
+}

@@ -1,0 +1,33 @@
+@reference "tailwindcss";
+
+.dialogo {
+  /* El reset de Tailwind quita el centrado nativo del <dialog>. */
+  @apply m-auto p-6 rounded-[var(--radius)] border;
+  max-height: calc(100dvh - 2rem);
+  width: min(32rem, calc(100vw - 2rem));
+  border-color: var(--border);
+  background-color: var(--surface);
+  color: var(--fg);
+}
+
+.dialogo::backdrop {
+  background-color: rgb(0 0 0 / 0.45);
+}
+
+.dialogo-titulo {
+  @apply text-xl font-semibold mb-2;
+}
+
+.dialogo-descripcion {
+  @apply mb-4;
+  color: var(--fg-muted);
+}
+
+.dialogo-acciones {
+  @apply flex flex-wrap justify-end gap-3;
+}
+
+.dialogo-confirmar {
+  @apply text-base font-semibold;
+  min-height: var(--touch-min);
+}

@@ -1,0 +1,110 @@
+@reference "tailwindcss";
+/* Alertas y umbrales (mockup docs/mockups/configuracion-alertas.png). */
+
+.alertas-pagina {
+  @apply w-full flex flex-col gap-4;
+}
+
+.alertas-nota {
+  color: var(--fg-muted);
+}
+
+.lista-alertas {
+  @apply flex flex-col gap-3;
+}
+
+.alertas-filtros {
+  @apply flex flex-wrap items-end gap-x-4 gap-y-2;
+}
+
+.alertas-filtros > label:has(input[type="checkbox"]) {
+  @apply flex items-center;
+  min-height: var(--touch-min);
+}
+
+/* Umbrales */
+.umbrales {
+  @apply flex flex-col gap-6;
+}
+
+.umbral-form {
+  @apply max-w-xl flex flex-col;
+}
+
+.umbral-fila {
+  @apply grid gap-x-4 gap-y-2 mb-4 sm:grid-cols-2;
+}
+
+.umbral-referencia {
+  @apply mb-4 p-4 rounded-[var(--radius)];
+  background-color: var(--surface-muted);
+}
+
+.umbral-referencia ul {
+  @apply list-none m-0 mt-1 p-0 flex flex-col gap-1;
+}
+
+.umbral-referencia li span {
+  color: var(--fg-muted);
+}
+
+.umbral-canales {
+  @apply m-0 mb-4 p-0 border-0;
+}
+
+.umbral-canales legend {
+  @apply mb-1 font-medium;
+}
+
+.umbral-canales label {
+  @apply flex items-center;
+  min-height: var(--touch-min);
+}
+
+.umbral-aviso {
+  @apply flex items-start gap-2 p-3 mt-2 rounded-[var(--radius)] border;
+  color: var(--estado-advertencia);
+  background-color: var(--estado-advertencia-bg);
+  border-color: var(--estado-advertencia);
+}
+
+.umbral-aviso svg {
+  @apply shrink-0 mt-[0.2em];
+}
+
+.umbral-submit {
+  @apply self-start text-base font-semibold;
+  min-height: var(--touch-min);
+}
+
+.umbrales-lista h2 {
+  @apply text-xl font-semibold mb-3;
+}
+
+.umbrales-items {
+  @apply list-none m-0 p-0 flex flex-col gap-2;
+}
+
+.umbral {
+  @apply flex flex-wrap items-center gap-3 p-3 rounded-[var(--radius)] border;
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+.umbral-texto {
+  @apply flex-1 min-w-[14rem];
+}
+
+.umbral-descripcion {
+  @apply font-medium;
+}
+
+.umbral-deshabilitado .umbral-descripcion,
+.umbral-detalle {
+  color: var(--fg-muted);
+}
+
+.umbral-acciones {
+  @apply flex flex-wrap items-center gap-2;
+}
+

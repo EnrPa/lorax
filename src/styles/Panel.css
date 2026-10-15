@@ -1,0 +1,137 @@
+@reference "tailwindcss";
+/* Panel de estado (mockup docs/mockups/panel-estado.png). La tarjeta de variable es la protagonista;
+   el resto, sobrio (diseno.md §9). */
+
+.panel {
+  @apply w-full flex flex-col gap-5;
+}
+
+.panel-encabezado {
+  @apply flex flex-wrap items-end justify-between gap-3;
+}
+
+.selector-terreno {
+  @apply flex flex-col gap-1 font-medium;
+  min-width: min(100%, 18rem);
+}
+
+.selector-terreno select {
+  @apply px-3 rounded-[var(--radius)] border text-base;
+  min-height: var(--touch-min);
+  border-color: var(--border);
+  background-color: var(--surface);
+  color: var(--fg);
+}
+
+.panel-cargando,
+.panel-actualizado,
+.panel-sin-alertas {
+  color: var(--fg-muted);
+}
+
+/* Alertas recientes */
+.panel-alertas h2,
+.panel-estacion h2 {
+  @apply text-xl font-semibold;
+}
+
+.alertas {
+  @apply list-none m-0 mt-3 p-0 flex flex-col gap-2;
+}
+
+.alerta {
+  @apply flex flex-wrap items-start gap-3 p-3 rounded-[var(--radius)] border;
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+.alerta-vigente {
+  border-left-width: 6px;
+  border-left-color: var(--estado-advertencia);
+}
+
+.alerta-cuerpo {
+  @apply flex-1 min-w-[12rem];
+}
+
+.alerta-mensaje {
+  @apply font-medium;
+}
+
+.alerta-leida .alerta-mensaje {
+  @apply font-normal;
+}
+
+.alerta-fecha,
+.alerta-leida-texto {
+  color: var(--fg-muted);
+}
+
+.alerta-leida-texto {
+  @apply inline-flex items-center gap-1 self-center;
+}
+
+/* Estaciones y tarjetas */
+.panel-estacion {
+  @apply flex flex-col gap-3;
+}
+
+.panel-estacion-encabezado {
+  @apply flex flex-wrap items-center gap-x-3 gap-y-1;
+}
+
+.panel-estacion-modelo {
+  color: var(--fg-muted);
+}
+
+.tarjetas {
+  @apply grid gap-4;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+}
+
+.tarjeta-variable {
+  @apply flex flex-col gap-1 p-4 rounded-[var(--radius)] border;
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+/* El estado también se marca en el borde superior; el texto e ícono de la insignia siguen siendo la señal principal. */
+.tarjeta-fuera-de-rango {
+  border-top: 4px solid var(--estado-advertencia);
+}
+
+.tarjeta-encabezado {
+  @apply flex flex-col items-start gap-2;
+}
+
+.tarjeta-encabezado h3 {
+  @apply text-base font-semibold;
+}
+
+.tarjeta-valor {
+  @apply flex items-baseline gap-1 mt-1;
+}
+
+.tarjeta-numero {
+  @apply text-4xl font-bold tracking-tight;
+}
+
+.tarjeta-unidad {
+  @apply text-xl font-semibold;
+  color: var(--fg-muted);
+}
+
+.tarjeta-valor-antiguo .tarjeta-numero {
+  @apply text-2xl font-semibold;
+  color: var(--fg-muted);
+}
+
+.tarjeta-fecha,
+.tarjeta-pie,
+.tarjeta-sin-lecturas {
+  color: var(--fg-muted);
+}
+
+.tarjeta-pie {
+  @apply text-sm;
+}

@@ -1,0 +1,53 @@
+{
+  "name": "lorax",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start",
+    "preview": "vinxi preview",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test",
+    "test": "vitest run",
+    "test:infra": "vitest run --config vitest.infra.config.ts",
+    "test:carga": "vitest run --config vitest.carga.config.ts",
+    "db:generar": "drizzle-kit generate",
+    "db:migrar": "drizzle-kit migrate",
+    "db:reiniciar": "node --env-file-if-exists=.env scripts/db-reiniciar.ts && npm run db:migrar && npm run db:semilla",
+    "db:semilla": "node --env-file-if-exists=.env --import tsx scripts/db-semilla.ts",
+    "db:al-dia": "node --env-file-if-exists=.env --import tsx scripts/db-al-dia.ts",
+    "restaurar": "node --env-file-if-exists=.env --import tsx scripts/restaurar.ts",
+    "historico": "node --env-file-if-exists=.env --import tsx scripts/db-historico.ts",
+    "emulador": "node --env-file-if-exists=.env --import tsx scripts/emulador.ts",
+    "evidencia": "node --import tsx scripts/evidencia.ts",
+    "capturas": "node --import tsx scripts/capturas.ts"
+  },
+  "dependencies": {
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.16.2",
+    "@solidjs/start": "1.3.2",
+    "@tailwindcss/vite": "^4.3.3",
+    "better-sqlite3": "^13.0.3",
+    "chart.js": "^4.5.1",
+    "drizzle-orm": "^0.45.3",
+    "jose": "^6.2.12",
+    "lucide-solid": "^1.28.0",
+    "solid-js": "^1.9.5",
+    "tailwindcss": "^4.3.3",
+    "vinxi": "^0.5.7",
+    "zod": "^4.6.5"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "1.59.1",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^22.20.4",
+    "drizzle-kit": "^0.31.11",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.2"
+  }
+}
